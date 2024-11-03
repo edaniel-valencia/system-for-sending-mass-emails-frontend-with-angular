@@ -8,17 +8,20 @@ import { MarketingComponent } from './admin/marketing/marketing.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './admin/home/home.component';
 import { NotPageComponent } from './admin/not-page/not-page.component';
+import { tokenGuard } from './guard/token.guard';
 
 export const routes: Routes = [
     {path: '', component: PageComponent},
    
 
-    {path: 'admin', 
+    {   
+        path: 'admin', 
         component: AdminComponent,
+        canActivate: [tokenGuard],
         children: [ 
-            {path: '', component: HomeComponent},
+            {path: '',  component: HomeComponent},
             {path: 'user', component: UserComponent},
-            {path: 'group', component: CategoryComponent},
+            {path: 'group',  component: CategoryComponent},
             {path: 'masive', component: MarketingComponent},
             {path: 'setting-server', component: ConfigComponent},
             {path: 'userGroupId/:Cid', component: CategoryUserComponent},

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { initFlowbite } from 'flowbite';
 import { AuthService } from './services/auth.service';
 import { ToastrService } from 'ngx-toastr';
@@ -30,7 +30,8 @@ export class AppComponent implements OnInit {
     private fb: FormBuilder,
     private _authService: AuthService,
     private toastr: ToastrService,
-    private _errorService: ErrorService
+    private _errorService: ErrorService,
+    private router: Router
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -71,15 +72,17 @@ export class AppComponent implements OnInit {
     console.log(admin);
     
     this._authService.loginAdmin(admin).subscribe({
-      next: () => {
-        this.toastr.success("Correo enviado exitosamente", "Correo Enviado")
-        this.form.reset()
+      next: (response: any) => {
+        const token = response.token;
+        console.log(token);
+        localStorage.setItem('myToken', token); 
+        this.toastr.success("Iniciado sesión con éxito", "Login");
+        this.form.reset();
+        this.router.navigate(['/admin']);
       },
       error: (e: HttpErrorResponse) => {
-        this._errorService.messageError(e)
+        this._errorService.messageError(e);
       },
-      complete: () => console.info('complete')
-    })
-
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Email } from '../interfaces/email';
 import { Observable } from 'rxjs';
@@ -17,8 +17,9 @@ export class CategoryService {
     this.myApiUrl = "api/category"
    }
 
-
+   
    ReadAll(): Observable<Category[]>{
+    
     return this.http.get<Category[]>(`${this.myAppUrl}${this.myApiUrl}/readAll`)
    }
 

@@ -2,14 +2,18 @@ import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } fr
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';  // Importa HttpClientModule
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';  // Importa HttpClientModule
 import { provideToastr } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), 
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(), 
+    provideHttpClient(
+      withInterceptors([TokenInterceptor])
+    ),
     provideAnimations(),
     provideToastr({
       timeOut: 3000,
@@ -19,6 +23,6 @@ export const appConfig: ApplicationConfig = {
       closeButton: true,
       easing: 'ease-in',
       easeTime: 300
-    }), 
+    })
   ]
 };
