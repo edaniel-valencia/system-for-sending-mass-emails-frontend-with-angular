@@ -26,6 +26,11 @@ export class MarketingService {
     return this.http.get<Marketing[]>(`${this.myAppUrl}${this.myApiUrl}/readAll`, {params})
    }
 
+   Delete(idMarketing: number): Observable<any>{
+    console.log("User Service For Delete: ", idMarketing);
+
+    return this.http.delete(`${this.myAppUrl}${this.myApiUrl}/delete/${idMarketing}`)
+   }
 
 
 }

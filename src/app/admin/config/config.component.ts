@@ -36,6 +36,14 @@ export class ConfigComponent implements OnInit {
   file: File | null = null;
   form: FormGroup;
   formUpdate: FormGroup;
+
+  getMastkedPassword(cpass?: string): string {
+    if(!cpass){return ''}
+    const visiblePart = cpass.slice(0,5)
+    const maskedPart = '*'.repeat(cpass.length - 5)
+    return visiblePart+maskedPart
+  }
+  
   constructor(
     private route: ActivatedRoute,
     private toastr: ToastrService,

@@ -12,8 +12,6 @@ import { tokenGuard } from './guard/token.guard';
 
 export const routes: Routes = [
     {path: '', component: PageComponent},
-   
-
     {   
         path: 'admin', 
         component: AdminComponent,
@@ -30,7 +28,9 @@ export const routes: Routes = [
             {path: '**', redirectTo: 'not-page', pathMatch: 'full'}
         ]
     },
-    
     {path: '**', redirectTo: '/', pathMatch: 'full'}
 
 ];
+
+
+

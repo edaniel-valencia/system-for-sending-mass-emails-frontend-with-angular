@@ -2,13 +2,14 @@
 <nav class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0"
   aria-label="Table navigation">
   <span class="text-sm font-normal text-gray-500 dark:text-gray-400">Mostrar
-    <span class="font-semibold text-gray-900 dark:text-white">{{ startItem}} - {{endItem}}</span>
-    de 
+    <span class="font-semibold text-gray-900 dark:text-white">
+      {{ (currentPage - 1 ) * itemsPerPage + 1}}-{{getEndItem()}}</span>
+    de
     <span class="font-semibold text-gray-900 dark:text-white">{{ totalItems }}</span> registros
   </span>
   <ul class="inline-flex items-stretch -space-x-px">
     <li>
-      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage ===1"
+      <button (click)="changePage(currentPage - 1)" [disabled]="currentPage ===1"
         class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
         <span class="sr-only">Previous</span>
         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -19,17 +20,17 @@
         </svg>
       </button>
     </li>
-    <li *ngFor="let page of totalPages"> 
-      <button (click)="onPageChange(page)"
-      [class]="page === currentPage ?
+    <li *ngFor="let page of totalPages">
+      <button (click)="changePage(page)"
+        [class]="page === currentPage ?
        'z-10 py-2 px-3 leading-tight text-primary-600 bg-primary-50 border border-primary-300 dark:border-gray-700 dark:bg-gray-700 dark:text-white' :
         'py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'">
-      {{ page }}</button>
+        {{ page }}</button>
     </li>
- 
-  
+
+
     <li>
-      <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * itemsRegisterPage >= totalItems"
+      <button (click)="changePage(currentPage + 1)" [disabled]="currentPage * itemsRegisterPage >= totalItems"
         class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
         <span class="sr-only">Next</span>
         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"

@@ -79,36 +79,43 @@ export class CategoryUserComponent implements OnInit {
   onPageChanged(page: number): void{
     this.ReadUserCategoryId(this.selectedCategoryId ?? 0, page)
   }
+   
+    
 
 
   SendEmailMasiveByCategory(CategoryId: number) {
 
         
-    if (this.form.invalid) {
+    // if (this.form.invalid) {
 
-      Object.keys(this.form.controls).forEach(key => {
-        const control = this.form.get(key);
+    //   Object.keys(this.form.controls).forEach(key => {
+    //     const control = this.form.get(key);
 
-        if (control?.invalid && control.touched) {
-          if (control.errors?.['required']) {
-            this.toastr.error(`El campo ${key} esta vacio`, 'Error')
-          } else if (control.errors?.['pattern']) {
-            this.toastr.error(`El campo ${key} debe tener letras mayusculas`, 'Error')
-          } 
-        }
+    //     if (control?.invalid && control.touched) {
+    //       if (control.errors?.['required']) {
+    //         this.toastr.error(`El campo ${key} esta vacio`, 'Error')
+    //       } else if (control.errors?.['pattern']) {
+    //         this.toastr.error(`El campo ${key} debe tener letras mayusculas`, 'Error')
+    //       } 
+    //     }
 
-        control?.markAsTouched()
-      })
-      // this.toastr.error('No haz completado todo los datos', 'Alerta Campos Vacios')
-      return
-    }
+    //     control?.markAsTouched()
+    //   })
+    //   // this.toastr.error('No haz completado todo los datos', 'Alerta Campos Vacios')
+    //   return
+    // }
 
+    
 
     const email: Email = {
       title: this.form.value.title,
       message: this.form.value.message,
     };
 
+
+    console.log(email);
+    console.log(CategoryId);
+    
     if (!this.file) {
       this.toastr.error('Selecciona una imagen', 'Alerta Imagen Vacia');
       return;

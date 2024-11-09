@@ -14,25 +14,56 @@ export class PaginationComponent {
   @Input() totalItems: number = 0;
   @Input() itemsRegisterPage: number = 10;
   @Input() currentPage: number = 1;
-  @Output() pageChanged: EventEmitter<number> = new EventEmitter<number>();
+  @Output() pageChanged = new EventEmitter<number>();
+
+  itemsPerPage: number = 10
 
 
-  get startItem(): number {
-    return (this.currentPage - 1) * this.itemsRegisterPage + 1
+
+  get totalPages(): (number | string)[] {
+    const totalPagesCount = Math.ceil(this.totalItems / this.itemsPerPage);
+    const visiblePages: (number | string)[] = [];
+
+
+    if (totalPagesCount <= 7) {
+      for (let i = 1; i <= totalPagesCount; i++) {
+        visiblePages.push(i);
+      }
+    } else {
+      visiblePages.push(1)
+      if (this.currentPage > 4) {
+        visiblePages.push('...')
+      }
+
+      const startPage = Math.max(2, this.currentPage - 1);
+      const endPage = Math.min(totalPagesCount - 1, this.currentPage + 1);
+
+      for (let i = startPage; i <= endPage; i++) {
+        visiblePages.push(i);
+      }
+
+      if (this.currentPage < totalPagesCount - 3) {
+        visiblePages.push('...')
+      }
+
+      visiblePages.push(totalPagesCount)
+    }
+
+    return visiblePages
+
   }
 
-  get endItem(): number {
-    return Math.min(this.currentPage * this.itemsRegisterPage, this.totalItems);
+  changePage(page: number | string): void {
+    if (typeof page === 'number') {
+      this.currentPage = page;
+      this.pageChanged.emit(this.currentPage)
+    }
   }
 
-  get totalPages(): number[] {
-    const pageCount = Math.ceil(this.totalItems / this.itemsRegisterPage)
-    return pageCount > 1 ? Array(pageCount).fill(0).map((_, i) => i + 1) : []
+  getEndItem(): number {
+    return Math.min(this.currentPage * this.itemsPerPage, this.totalItems);
   }
 
-  onPageChange(page: number): void {
-    this.pageChanged.emit(page)
-  }
 
 
 }

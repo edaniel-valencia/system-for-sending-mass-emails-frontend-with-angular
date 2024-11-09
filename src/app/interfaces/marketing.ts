@@ -5,7 +5,7 @@ export interface Marketing{
     Mimage?: string,
     Mmessage?: string,
     Mtype?: string,
-    Mstatus?: string,
+    Mstatus?: number,
     Mcreated?: string,
 
 }

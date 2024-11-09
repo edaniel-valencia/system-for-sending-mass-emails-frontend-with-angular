@@ -24,5 +24,22 @@ export class CategoryService {
    }
 
 
+   PostCategory(category: Category): Observable<any>{
+    console.log("User Service For POST: ",category);
+    
+    return this.http.post(`${this.myAppUrl}${this.myApiUrl}/create`, category)
+   }
+
+   PatchCategory(category: Category, idCategory: number): Observable<any>{
+    console.log("User Service For Patch: ",category);
+
+    return this.http.patch(`${this.myAppUrl}${this.myApiUrl}/update/${idCategory}`, category)
+   }
+
+  //  DeleteUser(idUser: number): Observable<any>{
+  //   console.log("User Service For Delete: ", idUser);
+
+  //   return this.http.delete(`${this.myAppUrl}${this.myApiUrl}/delete/${idUser}`)
+  //  }
 
 }

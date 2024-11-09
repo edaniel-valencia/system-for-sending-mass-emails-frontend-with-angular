@@ -26,6 +26,10 @@ export class AppComponent implements OnInit {
 
   form: FormGroup;
 
+  currentModalId: number | null = null;
+  currentModalType: 'Create' | 'CreateUserFile' | 'Read' | 'Delete' | null = null;
+
+
   constructor(
     private fb: FormBuilder,
     private _authService: AuthService,
@@ -78,6 +82,7 @@ export class AppComponent implements OnInit {
         localStorage.setItem('myToken', token); 
         this.toastr.success("Iniciado sesión con éxito", "Login");
         this.form.reset();
+        this.closeModal();
         this.router.navigate(['/admin']);
       },
       error: (e: HttpErrorResponse) => {
@@ -85,4 +90,19 @@ export class AppComponent implements OnInit {
       },
     });
   }
+  
+  openModal(modalId: number, modalType: 'Create' | 'CreateUserFile' | 'Read' | 'Delete') {
+    this.currentModalId = modalId,
+      this.currentModalType = modalType;
+  }
+
+  isModalOpen(modalType: 'Create' | 'CreateUserFile' | 'Read' | 'Delete') {
+    return this.currentModalType === modalType;
+  }
+
+  closeModal() {
+    this.currentModalId = null,
+      this.currentModalType = null;
+  }
+
 }

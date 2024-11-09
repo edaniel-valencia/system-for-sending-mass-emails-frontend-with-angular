@@ -3,7 +3,9 @@ export interface User{
  Uname?: string
  Ulastname?: string
  Uemail?: string
- Uwhatsapp?: string,
+ Uwhatsapp?: string
+ Ustatus?: number
+ CategoryId?: number,
  categories?: {
     Cid?: number,
     Cname?: string,

@@ -40,7 +40,26 @@ export class UserService {
     formData.append('excel', file);
     console.log(formData);
 
-    return this.http.post(`${this.myAppUrl}${this.myApiUrl}/create`, formData);
+    return this.http.post(`${this.myAppUrl}${this.myApiUrl}/createUserFile`, formData);
   }
+
+  
+  PostUser(user: User): Observable<any>{
+    console.log("User Service For POST: ",user);
+    
+    return this.http.post(`${this.myAppUrl}${this.myApiUrl}/create`, user)
+   }
+
+   PatchUser(user: User, idUser: number): Observable<any>{
+    console.log("User Service For Patch: ",user);
+
+    return this.http.patch(`${this.myAppUrl}${this.myApiUrl}/update/${idUser}`, user)
+   }
+
+   DeleteUser(idUser: number): Observable<any>{
+    console.log("User Service For Delete: ", idUser);
+
+    return this.http.delete(`${this.myAppUrl}${this.myApiUrl}/delete/${idUser}`)
+   }
 
 }

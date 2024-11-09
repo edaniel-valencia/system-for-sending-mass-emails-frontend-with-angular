@@ -14,7 +14,7 @@
                             <b> Puerto:</b> {{item.Cport}} <br>
                             <b> Seguridad:</b> {{item.Csecure}} <br>
                             <b> Correo del servidor:</b> {{item.Cauth}} <br>
-                            <b> Clave del correo:</b> {{item.Cpass}} <br>
+                            <b> Clave del correo:</b> {{getMastkedPassword(item.Cpass)}} <br>
                         </p>
                         <button (click)="openModal(item, item.Cid!, 'Update')"
                             class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
@@ -202,7 +202,7 @@
                                 </div>
 
                                 <div class="relative z-0">
-                                    <input type="text" id="floating_standard" formControlName="pass"
+                                    <input type="password" id="floating_standard" formControlName="pass"
                                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                         placeholder=" " />
                                     <label for="floating_standard"
