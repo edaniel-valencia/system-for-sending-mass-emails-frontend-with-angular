@@ -7,6 +7,8 @@ import { TokenService } from '../services/token.service';
 
 export const TokenInterceptor: HttpInterceptorFn = (req, next) => {
   const token = localStorage.getItem('myToken');
+  const router = inject(Router)
+  const _errorService = inject(ErrorService)
 
   const clonedRequest = token
     ? req.clone({
@@ -16,10 +18,6 @@ export const TokenInterceptor: HttpInterceptorFn = (req, next) => {
 
     return next(clonedRequest).pipe(
       catchError((error) => {
-        const router = inject(Router)
-        const _errorService = inject(ErrorService)
-
-
         if(error.status === 401){
           router.navigate(['/'])
         }

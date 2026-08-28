@@ -1,29 +1,54 @@
-# FrontendEnvioCorreos
+<div align="center">
+  <img src="public/logo.png" alt="Logo" width="200"/>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0 and updated to Angular 22 (Node.js 24, pnpm).
+  # Sistema de Envío de Correos Masivos - Frontend
+  
+  [![Descargar Backend](https://img.shields.io/badge/Descargar_Backend-232F3E?style=for-the-badge&logo=github&logoColor=white)](https://github.com/edaniel-valencia/system-for-sending-mass-emails-backend-with-angular)
+</div>
 
-Requires Node.js >= 24 and [pnpm](https://pnpm.io/). Install dependencies with `pnpm install`.
+## Vistas del Sistema
 
-## Development server
+### Página Principal
+![Página 1](public/page1.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Panel Administrativo
+![Página 2](public/page2.png)
 
-## Code scaffolding
+## Pre-requisitos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Antes de iniciar, asegúrate de tener instalados:
 
-## Build
+- **Node.js** (versión 24.x o superior)
+- **Angular CLI** (versión 22.x)
+- **NPM** (incluido con Node.js)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Configuración
 
-## Running unit tests
+1. Clona el repositorio e ingresa a la carpeta:
+   ```bash
+   git clone https://github.com/edaniel-valencia/system-for-sending-mass-emails-frontend-with-angular.git
+   cd system-for-sending-mass-emails-frontend-with-angular
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Instala las dependencias del proyecto:
+   ```bash
+   npm install
+   ```
 
-## Running end-to-end tests
+3. Configura las variables de entorno:
+   - Crea un archivo `.env` en la raíz del proyecto basándote en el archivo de prueba `.env.test`.
+   - Asegúrate de configurar la URL del backend correctamente en dicho archivo.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Ejecución en Local
 
-## Further help
+Para iniciar el servidor de desarrollo, ejecuta el siguiente comando:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+ng serve
+```
+O también puedes usar:
+```bash
+npm run start
+```
+
+Abre tu navegador y dirígete a `http://localhost:4200/`. La aplicación se recargará automáticamente si realizas cambios en los archivos del código.

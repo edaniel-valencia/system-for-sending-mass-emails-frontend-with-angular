@@ -41,41 +41,6 @@
 
 
 
-<!-- drawer component -->
-<div id="drawer-right-example"
-  class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
-  tabindex="-1" aria-labelledby="drawer-right-label">
-  <h5 id="drawer-label" class="inline-flex items-center mb-6 text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Iniciar Sesión</h5>
-  <button type="button" data-drawer-hide="drawer-right-example" aria-controls="drawer-right-example" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
-    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-    </svg>
-    <span class="sr-only">Close menu</span>
-  </button>
-  <form class="mb-6">
-    <div class="mb-6">
-      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electrónico</label>
-      <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@tse.com" required />
-    </div>
-    <div class="mb-6">
-      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
-      <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="************" required />
-    </div>
-
-    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 w-full focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block">Acceder al sistema</button>
-  </form>
-  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-    <a href="mailto:{{emailTSE}}" class="hover:underline">{{emailTSE}}</a>
-  </p>
-  <p class="text-sm text-gray-500 dark:text-gray-400">
-    <a href="tel:{{phoneTSE}}" class="hover:underline">{{phoneTSE}}</a>
-  </p>
-  <p class="text-sm text-gray-500 dark:text-gray-400">
-    <a href="https://wa.me/{{phoneTSE}}" class="hover:underline" target="_blank">Contactar por Whatsapp</a>
-  </p>
-</div>
-
-
 @if (isModalOpen('Create')) {
   <!-- Main modal -->
   <div id="default-modal" tabindex="-1" aria-hidden="true"
@@ -121,3 +86,10 @@
 }
 
 <router-outlet />
+
+<footer class='bg-white rounded-lg shadow m-4 dark:bg-gray-800'>
+    <div class='w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-center'>
+      <span class='text-sm text-gray-500 sm:text-center dark:text-gray-400'>Desarrollado por E. Daniel Valencia de ADAVAM
+    </span>
+    </div>
+</footer>
