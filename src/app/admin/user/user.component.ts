@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
@@ -14,11 +14,11 @@ import { CategoryService } from '../../services/category.service';
 import { FileService } from '../../services/file.service';
 
 @Component({
-  selector: 'app-user',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, PaginationComponent, FormsModule],
-  templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+    selector: 'app-user',
+    imports: [CommonModule, ReactiveFormsModule, FormsModule, PaginationComponent, FormsModule],
+    templateUrl: './user.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit {
 

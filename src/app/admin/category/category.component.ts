@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Category } from '../../interfaces/category';
 import { CategoryService } from '../../services/category.service';
 import { ToastrService } from 'ngx-toastr';
@@ -9,11 +9,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-category',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule],
-  templateUrl: './category.component.html',
-  styleUrl: './category.component.css'
+    selector: 'app-category',
+    imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule],
+    templateUrl: './category.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './category.component.css'
 })
 export class CategoryComponent implements OnInit {
 

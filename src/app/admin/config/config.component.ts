@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from '../../services/error.service';
-import { CommonModule } from '@angular/common';
+
 import { ConfigService } from '../../services/config.service';
 import { Config } from '../../interfaces/config';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-config',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './config.component.html',
-  styleUrl: './config.component.css'
+    selector: 'app-config',
+    imports: [ReactiveFormsModule],
+    templateUrl: './config.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './config.component.css'
 })
 export class ConfigComponent implements OnInit {
 

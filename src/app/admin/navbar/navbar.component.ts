@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FileService } from '../../services/file.service';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+    selector: 'app-navbar',
+    imports: [RouterLink, RouterLinkActive],
+    templateUrl: './navbar.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './navbar.component.css'
 })
 export class NavbarComponent{
 

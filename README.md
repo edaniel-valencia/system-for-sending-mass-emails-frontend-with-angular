@@ -1,6 +1,8 @@
 # FrontendEnvioCorreos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0 and updated to Angular 22 (Node.js 24, pnpm).
+
+Requires Node.js >= 24 and [pnpm](https://pnpm.io/). Install dependencies with `pnpm install`.
 
 ## Development server
 

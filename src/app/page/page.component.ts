@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmailService } from '../services/email.service';
 import { ToastrService } from 'ngx-toastr';
@@ -11,12 +11,12 @@ import { Email } from '../interfaces/email';
 import { LoginComponent } from '../login/login.component';
 
 @Component({
-  selector: 'app-page',
-  standalone: true,  // Especifica que es un componente standalone
-  imports: [ReactiveFormsModule],  // Asegúrate de que HttpClientModule está en imports
-  providers: [EmailService],
-  templateUrl: './page.component.html',
-  styleUrl: './page.component.css'
+    selector: 'app-page', // Especifica que es un componente standalone
+    imports: [ReactiveFormsModule], // Asegúrate de que HttpClientModule está en imports
+    providers: [EmailService],
+    templateUrl: './page.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './page.component.css'
 })
 export class PageComponent {
 

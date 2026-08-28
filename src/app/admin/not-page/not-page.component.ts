@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-not-page',
-  standalone: true,
-  imports: [],
-  templateUrl: './not-page.component.html',
-  styleUrl: './not-page.component.css'
+    selector: 'app-not-page',
+    imports: [],
+    templateUrl: './not-page.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './not-page.component.css'
 })
 export class NotPageComponent {
 

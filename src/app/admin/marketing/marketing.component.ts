@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { PaginationComponent } from '../../shared/pagination/pagination.component';
@@ -10,11 +10,11 @@ import { ErrorService } from '../../services/error.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-marketing',
-  standalone: true,
-  imports: [CommonModule, PaginationComponent, RouterLink, RouterLinkActive, ReactiveFormsModule],
-  templateUrl: './marketing.component.html',
-  styleUrl: './marketing.component.css'
+    selector: 'app-marketing',
+    imports: [CommonModule, PaginationComponent, ReactiveFormsModule],
+    templateUrl: './marketing.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './marketing.component.css'
 })
 export class MarketingComponent implements OnInit {
 

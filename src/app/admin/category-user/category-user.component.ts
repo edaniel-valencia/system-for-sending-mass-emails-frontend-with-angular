@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from '../../services/error.service';
@@ -7,7 +7,7 @@ import { Category } from '../../interfaces/category';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { CategoryService } from '../../services/category.service';
-import { CommonModule } from '@angular/common';
+
 import { PaginationComponent } from '../../shared/pagination/pagination.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmailService } from '../../services/email.service';
@@ -15,11 +15,11 @@ import { Email } from '../../interfaces/email';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-category-user',
-  standalone: true,
-  imports: [CommonModule, PaginationComponent, RouterLink, RouterLinkActive, ReactiveFormsModule],
-  templateUrl: './category-user.component.html',
-  styleUrl: './category-user.component.css'
+    selector: 'app-category-user',
+    imports: [PaginationComponent, RouterLink, RouterLinkActive, ReactiveFormsModule],
+    templateUrl: './category-user.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './category-user.component.css'
 })
 export class CategoryUserComponent implements OnInit {
 
